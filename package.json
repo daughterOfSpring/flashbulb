@@ -1,0 +1,17 @@
+{
+  "name": "imageservice",
+  "version": "1.0.0",
+  "description": "Returns the Nth image in a collection of images where N is a user provided input",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon controller.mjs"
+  },
+  "author": "Lilith Abrahamson",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
+}
