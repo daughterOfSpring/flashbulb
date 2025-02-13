@@ -61,37 +61,28 @@ export async function fetchImage(fileName) {
     return url;
 }
 
-export async function uploadImage(fileName) {
+export async function deleteImage(fileName) {
+    var params = {Bucket: bucket, Key: fileName};
 
+    s3.deleteObject(params, function (err, data) {
+        if (err) console.log(err, err.stack);  // error
+        else console.log();                 // deleted
+    });
+}
+
+
+export async function uploadImage(file) {
     const params = {
         Bucket: bucket,
-        Key: fileName, // File name in S3
-        Body: fs.createReadStream(fileName) // Read file stream
+        Key: file.originalname, // File name in S3
+        Body: fs.createReadStream(file.path) // Read file stream
     };
 
     s3.upload(params, (err, data) => {
         if (err) {
-            console.log('Error uploading file:', err);
-            return "Failed";
+            return 'Error uploading file:' + err;
         } else {
-            console.log('File uploaded successfully:', data.Location);
-            return "Sucess!";
+            return 'File uploaded successfully: ' + data.Location;
         }
     });
-}
-
-export async function uploadImages(dirName) {
-    const dirPath = "./" + dirName + "/"
-    try {
-        const dir = await fs.readdirSync(dirPath);
-        for (let file of dir) {
-            const filePath = dirPath + file;
-            console.log(filePath)
-            uploadImage(filePath)
-        }
-        return "Sucess!";
-    } catch (error) {
-        console.error('Error reading directory:', error);
-        return "Failed";
-    }
 }
