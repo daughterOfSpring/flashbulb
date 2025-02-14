@@ -18,6 +18,7 @@ app.listen(PORT, async () => {
     console.log(`Server listening on port ${PORT}...`);
 });
 
+
 app.get('/image/list', (asyncHandler(async (req, res) => {
     await fetchImageList().then(data => res.status(200).send({files: data})).catch(err => console.log(err));
 })))

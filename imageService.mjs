@@ -1,7 +1,9 @@
+import 'dotenv/config';
 import AWS from 'aws-sdk';
 import fs from 'fs';
 
-const bucket = 'photobucket69813';
+
+const BUCKET = process.env.BUCKET;
 
 AWS.config.loadFromPath('./config.json');
 const s3 = new AWS.S3();
@@ -9,13 +11,12 @@ const s3 = new AWS.S3();
 let fileList = [];
 let directorySize = 0;
 
-
 async function getSize() {
     fileList = [];
     directorySize = 0;
 
     let params = {
-        Bucket: bucket
+        Bucket: BUCKET
     };
     let data = await s3.listObjects(params).promise();
 
@@ -59,7 +60,7 @@ export async function fetchImage(fileName) {
 }
 
 export async function deleteImage(fileName) {
-    var params = {Bucket: bucket, Key: fileName};
+    var params = {Bucket: BUCKET, Key: fileName};
 
     let data = await s3.deleteObject(params, function (err, data) {
         if (err) return 'Error deleted file:' + err;
@@ -72,7 +73,7 @@ export async function deleteImage(fileName) {
 export async function uploadImage(file) {
     let message = "invalid message";
     const params = {
-        Bucket: bucket,
+        Bucket: BUCKET,
         Key: file.originalname, // File name in S3
         Body: fs.createReadStream(file.path) // Read file stream
     };
