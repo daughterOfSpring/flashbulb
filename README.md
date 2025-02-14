@@ -32,6 +32,8 @@ otherwise, you may contact me for the access keys at abrahamp@oregonstate.edu or
 ## To Run
 add access credentials to config.json 
 
+add s3 bucket name to .env
+
 npm install
 
 npm start
