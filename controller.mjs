@@ -3,13 +3,14 @@ import express from 'express';
 import asyncHandler from 'express-async-handler';
 import multer from 'multer';
 
-const storage = multer.diskStorage({})
-
 import {fetchImageList, fetchRandomImage, fetchImage, uploadImage, deleteImage} from './imageService.mjs'
 
 const app = express();
-app.use(express.json());
 const PORT = process.env.PORT;
+
+const storage = multer.diskStorage({})
+
+app.use(express.json());
 
 /**
  * Function call that sets the application port number and initialises the MongoDB connection

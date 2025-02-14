@@ -2,7 +2,6 @@ import 'dotenv/config';
 import AWS from 'aws-sdk';
 import fs from 'fs';
 
-
 const BUCKET = process.env.BUCKET;
 
 AWS.config.loadFromPath('./config.json');
@@ -35,7 +34,6 @@ export async function fetchImageList() {
     await getSize();
     return fileList;
 }
-
 
 // Function that retrieves the url of a random image inside the bucket
 export async function fetchRandomImage() {
