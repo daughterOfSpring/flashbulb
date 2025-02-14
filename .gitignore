@@ -1,6 +1,5 @@
 /package-lock.json
-/node_modules/
-/img/
-/text.txt
-/.idea/
 /config.json
+
+/node_modules/
+/.idea/
