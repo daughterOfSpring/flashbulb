@@ -78,4 +78,7 @@ Stores a new image in the s3 bucket.
  Response - {"message": "File uploaded successfully: file/location/inS3/filename.jpg" }
 </pre>
 
-# UML sequence diagram showing how requesting and receiving data works. Make it detailed enough that your teammate (and your grader) will understand.
+## UML sequence diagram showing how requesting and receiving data works.
+![UML_Sequence_Diagram_Add_and_Delete.png](uml%2FUML_Sequence_Diagram_Add_and_Delete.png)
+![UML Sequence Diagram Get Random.png](uml%2FUML%20Sequence%20Diagram%20Get%20Random.png)
+![UML Sequence Diagram Get Specific.png](uml%2FUML%20Sequence%20Diagram%20Get%20Specific.png)
